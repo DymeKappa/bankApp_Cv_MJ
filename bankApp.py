@@ -63,13 +63,13 @@ def runner():
             if user_data.logged_user:
                 while True:
                     action = input("Wybierz co chcesz zrobić: 1)Saldo, 2)Wpłać, 3)Wypłać lub q) Wyloguj: ")
-                    if action == "1":
-                        bank_app.checkSaldo(user_data.logged_user)  # Wywołanie metody checkSaldo z nazwą użytkownika
-                    elif action == "2":
+                    if action == "1": # Wywołanie metody checkSaldo z nazwą użytkownika
+                        bank_app.checkSaldo(user_data.logged_user)  
+                    elif action == "2": # Wywołanie metody deposit
                         bank_app.deposit()
-                    elif action == "3":
+                    elif action == "3": # Wywołanie metody withdraw
                         bank_app.withdraw()
-                    elif action == "q":
+                    elif action == "q": # Wylogowanie
                         break
                     else:
                         print("Nieprawidłowy wybór.")
