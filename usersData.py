@@ -53,7 +53,22 @@ class UserData:
                 print("Zalogowano pomyślnie.")
                 return True
             else:
-                print("Błąd logowania. Sprawdź nazwę użytkownika i hasło.")
+                print("Nieprawidłowe dane logowania")
+                while True:
+                    choice = input("Czy chcesz spróbować ponownie? (Tak/Nie): ").lower()
+                    if choice == "nie":
+                        register_choice = input("Czy chcesz zarejestrować nowe konto? (Tak/Nie): ").lower()
+                        if register_choice == "tak":
+                            self.registration()
+                        elif register_choice == "nie":
+                            print("Do widzenia!")
+                            return False
+                        else:
+                            print("Niepoprawna odpowiedź. Spróbuj ponownie.")
+                    elif choice == "tak":
+                        break
+                    else:
+                        print("Nieprawidłowa odpowiedź. Spróbuj ponownie.")
 
     def load_from_json(self):
         if os.path.exists('database.json') and os.path.getsize('database.json') > 0:
